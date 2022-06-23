@@ -1,6 +1,6 @@
 # monkdetect
 Detects/classify images of Buddha amulet with OpenCV. Because my friend messed up.<br />
-![screenshot](./readme_img/screenshot00.png)<br />
+![screenshot](./readme_img/screenshot00.jpg)<br />
 bro1: We printed 700 images that we need to put in correct order.<br />
 bro1: They swapped all the orders.<br />
 bro2: ...<br />
