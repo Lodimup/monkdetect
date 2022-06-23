@@ -9,6 +9,7 @@
 # https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html
 
 import cv2
+import time
 from monkdetect.helpers import (
     gen_source_objs
 )
@@ -26,6 +27,8 @@ def main():
     bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
     # change cycle
     while(True):
+        ts = time.time() # bench mark
+
         ret, frame = vid.read()  # capture vid frame
         kp2, des2 = orb.detectAndCompute(frame, None)
         for src_obj in l_src_objs:
@@ -44,11 +47,15 @@ def main():
             except Exception as e:
                 print(e)
                 cv2.imshow('Matches', frame)
+        fps = 1 / (time.time() - ts)
 
         # print scores
         l_src_objs = sorted(l_src_objs, key=lambda x: x.curr_avg_score)
         for src_obj in l_src_objs:
             print(f'{src_obj.path}: {src_obj.curr_avg_score:.0f}')
+        print('-'*20)
+        print(f'{fps:.0f} fps')
+        print(f'Detected: {l_src_objs[-1].path}')
         print('-'*20)
 
         # Press q to exit
