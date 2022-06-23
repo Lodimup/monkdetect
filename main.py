@@ -40,7 +40,7 @@ def main():
                 match_img = cv2.drawMatches(source, kp1, frame, kp2, matches[:50], None)
 
                 # update score
-                src_obj.add_score(len(matches))
+                src_obj.append_score(len(matches))
 
                 # Display the resulting frame
                 cv2.imshow('Matches', match_img)

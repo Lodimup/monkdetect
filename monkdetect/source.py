@@ -4,7 +4,7 @@ class Source:
         self.scores = []
         self.curr_avg_score = 0
 
-    def add_score(self, score):
+    def append_score(self, score):
         if len(self.scores) >= 10:
             self.scores = self.scores[1:]
         self.scores.append(score)
