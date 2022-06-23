@@ -1,8 +1,14 @@
+import cv2
+
+orb = cv2.ORB_create(nfeatures=500)
+
 class Source:
     def __init__(self, path):
         self.path = path
         self.scores = []
         self.curr_avg_score = 0
+        self.source = cv2.imread(self.path, 0)
+        self.kp, self.des = orb.detectAndCompute(self.source, None)
 
     def append_score(self, score):
         if len(self.scores) >= 10:

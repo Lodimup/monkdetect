@@ -32,8 +32,11 @@ def main():
         ret, frame = vid.read()  # capture vid frame
         kp2, des2 = orb.detectAndCompute(frame, None)
         for src_obj in l_src_objs:
-            source = cv2.imread(src_obj.path, 0)
-            kp1, des1 = orb.detectAndCompute(source, None)
+            # source = cv2.imread(src_obj.path, 0)
+            # kp1, des1 = orb.detectAndCompute(source, None)
+            kp1 = src_obj.kp
+            des1 = src_obj.des
+            source = src_obj.source
             try:  # try except because bf.match will raise an error if there is no match
                 matches = bf.match(des1, des2)
                 matches = sorted(matches, key=lambda x: x.distance)
