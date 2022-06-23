@@ -20,8 +20,11 @@ Point your webcam to the image<br />
 The correct image will have the highest score (it's sorted)<br />
 *** no need to quit the program the score is an average of last 10 cycles<br />
 press Q to close the program<br />
-# disclaimer
+## disclaimer
 i dunno wut im doing lul<br />
 ![idk](./readme_img/ihave.jpg)<br />
-# disclaimer2
+## disclaimer2
 probably can be super quicker, and do in batches, but that's for another day.<br />
+## disclaimer3
+acutally does not detect monks. It detects if webcam source has something similar to files im source/, then spits out the name of the file.<br />
+in this case, we use it to get the file name of printed images of amulet.<br />
