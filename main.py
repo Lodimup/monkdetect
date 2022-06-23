@@ -26,12 +26,10 @@ def main():
     bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
     # change cycle
     while(True):
+        ret, frame = vid.read()  # capture vid frame
         for src_obj in l_src_objs:
             source = cv2.imread(src_obj.path, 0)
             kp1, des1 = orb.detectAndCompute(source, None)
-            # Capture the video frame
-            # by frame
-            ret, frame = vid.read()
             kp2, des2 = orb.detectAndCompute(frame, None)
             try:  # try except because bf.match will raise an error if there is no match
                 matches = bf.match(des1, des2)
