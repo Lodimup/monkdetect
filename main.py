@@ -34,7 +34,7 @@ def main():
             ret, frame = vid.read()
             kp2, des2 = orb.detectAndCompute(frame, None)
             bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
-            try:
+            try:  # try except because bf.match will raise and error if there is no match
                 matches = bf.match(des1, des2)
                 matches = sorted(matches, key=lambda x: x.distance)
                 match_img = cv2.drawMatches(source, kp1, frame, kp2, matches[:50], None)
