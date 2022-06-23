@@ -1,5 +1,5 @@
 # monkdetect
-Detects/classfy images of Buddha amulet with OpenCV. Because my friend messed up.
+Detects/classify images of Buddha amulet with OpenCV. Because my friend messed up.
 ![screenshot](./readme_img/screenshot00.jpg)
 bro1: We printed 700 images that we need to put in correct order.
 bro1: They swapped all the orders.
