@@ -23,7 +23,7 @@ def main():
     vid.set(4, 600) # set height
 
     orb = cv2.ORB_create(nfeatures=500)
-
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
     # change cycle
     while(True):
         for src_obj in l_src_objs:
@@ -33,7 +33,6 @@ def main():
             # by frame
             ret, frame = vid.read()
             kp2, des2 = orb.detectAndCompute(frame, None)
-            bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
             try:  # try except because bf.match will raise an error if there is no match
                 matches = bf.match(des1, des2)
                 matches = sorted(matches, key=lambda x: x.distance)
